@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Magic number</h1>
+    <p>Welcome to my gamblingpage.</p>
+    <p>This is the current magic number: {{ number }}</p>
+    <br>
+    <div class="gamble">
+        <img src="{{ asset('img/gambler.jpg')}}" width="500px" alt="Bild på Gambler">
+        <p>När man rollar ett nummer man inte ville ha och laddar om sidan för att få ett ännu sämre nummer.</p>
+    </div>
+</div>
+{% endblock %}

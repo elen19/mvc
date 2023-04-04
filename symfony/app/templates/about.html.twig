@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+
+<h1>About</h1>
+<div class="row">
+    <div class="column">
+        <img src="{{ asset('img/symfony.png')}}" width="20%" alt="Bild på Symfony">
+        <h2>MVC</h2>
+        <p>
+            Namnet "mvc" är vårt eget smeknamn på kursen och under det namnet döljer sig objektorienterad PHP-programmering med kända webbramverk, enhetstestning, kodkvalitet och databaskopplingar med objekt relational mapping (ORM).
+        </p>
+        <p>
+            För detta kurstillfälle är Mikael Roos examinator/kursansvarig. Mikael och Marie Grahn sköter undervisningen i kursen och finns i chatten. Rättningar skötes av Mikael, Marie och rättningsteamet. I kulisserna finns resten av lärarteamet. Vi hoppas att du skall trivas med oss och kursen.
+        </p>
+        <p>
+            Här till höger har vi samlat ett antal länkar som hjälper dig att komma igång med kursen och bekanta dig med dess allmänna omgivning samt nå läromaterialet till kursens olika moment.
+        </p>
+        <p>
+            Kursen består av 6 kursmoment som skall utföras och lämnas in samt ett avslutande kmom07/10 som examinerar kursen. Kursmomenten är delvis gulmarkerade då de kommer att gås igenom och släppas löpande under kursens gång.
+        </p>
+    </div>
+    <div class="column">
+        <h1>Github repos</h1>
+        <a href="https://github.com/dbwebb-se/mvc">Kursens repo</a>
+        <br>
+        <a href="https://github.com/elen19/mvc">Mitt egna repo</a>
+    </div>
+</div> 
+{% endblock %}
