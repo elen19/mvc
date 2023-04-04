@@ -26,6 +26,10 @@ a:hover {
     color: pink;
 }
 
+li {
+    margin-left: 30px;
+}
+
 .site-header {
     margin-left: -20px;
     background-size: cover;
