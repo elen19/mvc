@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Cards;
+
+class CardHand
+{
+    private $cards;
+
+    public function __construct()
+    {
+        $this->cards = array();
+    }
+
+    public function addCard(Card $card)
+    {
+        $this->cards[] = $card;
+    }
+
+    public function removeCard(Card $card)
+    {
+        $key = array_search($card, $this->cards);
+        if ($key !== false) {
+            unset($this->cards[$key]);
+        }
+    }
+
+    public function getCards()
+    {
+        return $this->cards;
+    }
+
+    public function clear()
+    {
+        $this->cards = array();
+    }
+}

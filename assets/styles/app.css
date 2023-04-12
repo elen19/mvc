@@ -2,7 +2,6 @@ body {
     background-color: dimgray;
     color: wheat;
     margin: 0 auto;
-    margin-left: 20px auto;
 }
 
 main {
@@ -12,6 +11,11 @@ main {
 
 h1 {
     border-bottom: 4px double #ccc;
+    margin-left: 20px ;
+}
+
+h2 {
+    margin-left: 20px ;
 }
 
 a {
@@ -30,8 +34,10 @@ li {
     margin-left: 30px;
 }
 
+p {
+    margin-left: 20px;
+}
 .site-header {
-    margin-left: -20px;
     background-size: cover;
     height: 100px;
 }
@@ -62,4 +68,8 @@ li {
 .gamble {
     border: 2px solid wheat;
     max-width: 500px;
+}
+
+.deck {
+    font-weight: bold;
 }

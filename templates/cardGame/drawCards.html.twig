@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw Cards{% endblock %}
+
+{% block body %}
+<h1>Draw Cards</h1>
+
+<div class="deck">
+    <p>You drew the following cards:
+        {% for card in cards %}
+                {{ card.getSymbol() }}
+        {% endfor %}
+    </p>
+    <p>You have {{amount}} cards left in the deck.</p>
+    <p>Remember, you can always get a brand new deck by going to the <a href="{{ path('card')}}">start page.</a></p>
+</div>
+
+{% endblock %}

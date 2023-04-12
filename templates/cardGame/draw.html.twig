@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw card{% endblock %}
+
+{% block body %}
+<h1>Draw Card</h1>
+{% if amount > 0 %}
+    <p>You drew {{ card.getSymbol() }}. There is {{ amount }} cards left.</p>
+
+{% else %}
+    <p>There is no more cards in the deck. To reset go to <a href="{{ path('card')}}">card page</a> to get a new deck.</p>
+    <p>The last card you drew was {{ card.getSymbol() }}.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Shuffled deck{% endblock %}
+
+{% block body %}
+<h1>Shuffled deck</h1>
+
+<h1>Deck of Cards</h1>
+
+<div class="deck">
+    {% for card in cards %}
+            <p>{{ card.getSymbol() }}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

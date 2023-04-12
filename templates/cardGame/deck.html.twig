@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Sorted cards{% endblock %}
+
+{% block body %}
+<h1>Card game</h1>
+
+<h1>Deck of Cards</h1>
+
+<div class="deck">
+    {% for suit in suits %}
+    <p>
+        {% for card in cards %}
+            {% if card.getSuit == suit %}
+                {{ card.getSymbol() }}
+            {% endif %}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <br>
+</div>
+
+{% endblock %}
