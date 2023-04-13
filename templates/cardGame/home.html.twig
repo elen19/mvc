@@ -9,8 +9,17 @@
 <li><a href="{{ path('shuffle') }}">Shuffled deck</a></li>
 <li><a href="{{ path('draw') }}">Draw</a></li>
 <br>
-<div class="report">
-    <img class="uml" src="{{ asset('img/class.png')}}" alt="Bild på UML">
-</div>
+
+<main>
+    <div class="report">
+        <img class="uml" src="{{ asset('img/class.png')}}" alt="Bild på UML">
+    </div>
+
+    <p>Jag skapade fyra klasser. Card, CardHand, DeckOfCards samt CardGraphic. Ett kort består av en string som är siffran samt en string som är vilken färg.
+        CardHand består av kort, man kan lägga till och ta bort kort från handen. CardGraphic ärver av card. Det är den som ger alla kort rätt symboler från UTF-8 snittet.
+        DeckOfCards skapar en kortlek med hjälp av CardGraphic. Det är mest för att alla kort ska få ett utseende direkt istället för att första skapa kort och sen ge grafik. 
+        Därför arvet finns. Det är DeckOfCards som kan blanda kortleken, sortera den samt dra i från den.
+    </p>
+</main>
 
 {% endblock %}

@@ -8,9 +8,9 @@ class DeckOfCards
 
     public function __construct()
     {
-        $this->cards = array();
-        $ranks = array('A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K');
-        $suits = array('H', 'D', 'C', 'S');
+        $this->cards = [];
+        $ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        $suits = ['H', 'D', 'C', 'S'];
 
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
@@ -27,7 +27,7 @@ class DeckOfCards
 
     public function sort()
     {
-     // Define the order of the suits
+        // Define the order of the suits
         $suitOrder = ['C', 'D', 'H', 'S'];
 
         // Define the order of the ranks
@@ -54,7 +54,6 @@ class DeckOfCards
 
         $this->cards = $sortedDeck;
     }
-
 
     public function draw()
     {

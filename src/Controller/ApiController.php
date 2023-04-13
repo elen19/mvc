@@ -2,35 +2,30 @@
 
 namespace App\Controller;
 
-use App\Cards\Card;
-use App\Cards\CardGraphic;
-use App\Cards\CardHand;
 use App\Cards\DeckOfCards;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController
 {
-    #[Route("/api/deck", name: "apiDeck", methods: ['GET'])]
-    public function apiDeck(SessionInterface $session): Response 
+    #[Route('/api/deck', name: 'apiDeck', methods: ['GET'])]
+    public function apiDeck(SessionInterface $session): Response
     {
-        if ($session->has("deck")) {
-            $deck = $session->get("deck");
+        if ($session->has('deck')) {
+            $deck = $session->get('deck');
         } else {
             $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            $session->set('deck', $deck);
         }
         $deck->sort();
 
         $cards = $deck->getCards();
 
-        $fixedCards = array();
+        $fixedCards = [];
 
-        for ($i = 0; $i<$deck->getNrOfCards(); $i++) {
+        for ($i = 0; $i < $deck->getNrOfCards(); ++$i) {
             $fixedCards[] = $cards[$i]->getSymbol();
         }
 
@@ -42,21 +37,22 @@ class ApiController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
+
         return $response;
     }
 
-    #[Route("/api/deck/shuffle", name: "apiShuffle", methods: ['POST'])]
-    public function shuffle(SessionInterface $session): Response 
+    #[Route('/api/deck/shuffle', name: 'apiShuffle', methods: ['POST'])]
+    public function shuffle(SessionInterface $session): Response
     {
         $deck = new DeckOfCards();
         $deck->shuffle();
-        $session->set("deck", $deck);
+        $session->set('deck', $deck);
 
         $cards = $deck->getCards();
 
-        $fixedCards = array();
+        $fixedCards = [];
 
-        for ($i = 0; $i<$deck->getNrOfCards(); $i++) {
+        for ($i = 0; $i < $deck->getNrOfCards(); ++$i) {
             $fixedCards[] = $cards[$i]->getSymbol();
         }
 
@@ -68,26 +64,26 @@ class ApiController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
+
         return $response;
     }
 
-    #[Route("/card/deck/draw", name: "apiDraw", methods: ['POST'])]
-    public function draw(SessionInterface $session): Response 
+    #[Route('/card/deck/draw', name: 'apiDraw', methods: ['POST'])]
+    public function draw(SessionInterface $session): Response
     {
-        if ($session->has("deck")) {
-            $deck = $session->get("deck");
+        if ($session->has('deck')) {
+            $deck = $session->get('deck');
         } else {
             $deck = new DeckOfCards();
             $deck->shuffle();
-            $session->set("deck", $deck);
+            $session->set('deck', $deck);
         }
 
-        if ($deck->getNrOfCards() !== 0)
-        {
+        if (0 !== $deck->getNrOfCards()) {
             $card = $deck->draw();
-            $session->set("card", $card);
+            $session->set('card', $card);
         } else {
-            $card = $session->get("card");
+            $card = $session->get('card');
         }
         $amount = $deck->getNrOfCards();
 
@@ -100,25 +96,26 @@ class ApiController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
+
         return $response;
     }
 
-    #[Route("/card/deck/draw/{num<\d+>}", name: "apiDrawCards", methods: ['POST'])]
-    public function drawCards(int $num, SessionInterface $session): Response 
+    #[Route("/card/deck/draw/{num<\d+>}", name: 'apiDrawCards', methods: ['POST'])]
+    public function drawCards(int $num, SessionInterface $session): Response
     {
-        if ($session->has("deck")) {
-            $deck = $session->get("deck");
+        if ($session->has('deck')) {
+            $deck = $session->get('deck');
         } else {
             $deck = new DeckOfCards();
             $deck->shuffle();
-            $session->set("deck", $deck);
+            $session->set('deck', $deck);
         }
 
         if ($num > $deck->getNrOfCards()) {
-            throw new \Exception("Can not draw that many cards.");
+            throw new \Exception('Can not draw that many cards.');
         }
-        $cards = array();
-        for ($i = 0; $i < $num; $i++) {
+        $cards = [];
+        for ($i = 0; $i < $num; ++$i) {
             $cards[] = $deck->draw()->getSymbol();
         }
         $amount = $deck->getNrOfCards();
@@ -132,6 +129,7 @@ class ApiController
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
+
         return $response;
     }
 }

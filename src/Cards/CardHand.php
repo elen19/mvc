@@ -8,7 +8,7 @@ class CardHand
 
     public function __construct()
     {
-        $this->cards = array();
+        $this->cards = [];
     }
 
     public function addCard(Card $card)
@@ -19,7 +19,7 @@ class CardHand
     public function removeCard(Card $card)
     {
         $key = array_search($card, $this->cards);
-        if ($key !== false) {
+        if (false !== $key) {
             unset($this->cards[$key]);
         }
     }
@@ -31,6 +31,6 @@ class CardHand
 
     public function clear()
     {
-        $this->cards = array();
+        $this->cards = [];
     }
 }

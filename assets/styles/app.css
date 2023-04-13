@@ -73,3 +73,7 @@ p {
 .deck {
     font-weight: bold;
 }
+
+.uml {
+    margin-left: -150px;
+}
