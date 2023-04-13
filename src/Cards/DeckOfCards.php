@@ -52,7 +52,6 @@ class DeckOfCards
             }
         }
 
-        // Replace the original deck with the sorted deck
         $this->cards = $sortedDeck;
     }
 
