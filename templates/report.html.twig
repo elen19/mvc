@@ -6,6 +6,7 @@
 <main>
     <h1>Report</h1>
     <a href="#kmom01">Kmom01</a>
+    <a href="#kmom02">Kmom02</a>
 </main>
 <div class="report">
     <h2 id="kmom01">Kmom01</h2>
@@ -22,5 +23,29 @@
     <p>Kodstrukturen känns inte så speciell än så länge. Det känns som det är saker som jag redan gjort, även att det inte är det. Strukturen var enkelt att följa och få en bra grund.</p>
     <p>Har inte läst direkt något ur PHP the right way. Dock när jag skumma igenom lite verkar de har bra förklarning på hur man kan jobba med databaser mot PHP klienter.</p>
     <p>Min TIL är hur man gör JSON sidor. Har inte gjort något liknande innan, vad jag minns i alla fall, så det det var lärorikt.</p>
+
+    <br>
+    <h2 id="kmom02">Kmom02</h2>
+    <p>Arv (Inheritance) i PHP innebär att en klass kan ärva egenskaper och metoder från en annan överordnad klass. Detta möjliggör återanvändning av kod och sparar tid och arbete. 
+        För att ärva från en annan klass används nyckelordet "extends".</p>
+    <p>Komposition (Composition) i PHP innebär att en klass kan bestå av andra objekt. Detta gör det möjligt att bygga komplexa system genom att kombinera mindre delar. 
+        För att använda komposition i PHP skapas en instans av en klass inuti en annan klass.</p>
+    <p>Interface i PHP beskriver en uppsättning av metoder som en klass måste implementera. Detta gör det möjligt att skapa en standardiserad uppsättning av funktioner som kan användas av flera klasser. 
+        För att definiera ett interface används nyckelordet "interface".</p>
+    <p>Trait i PHP är en mekanism för att återanvända kod på tvärs av klasser. Detta innebär att en grupp av metoder kan definieras i en trait och sedan inkluderas i flera klasser. 
+        För att använda en trait i PHP används nyckelordet "use".</p>
+    <p>Jag började med att göra card klassen. Tanken var först att jag skulle göra utseendet på kort i den klassen också så mitt "mål" var att skapa ett kort och rita ut det i början. Det fungerade helt okej men sättet 
+        jag gjorde det på så hade jag behövt ha 52 rader kod vilket jag insåg tidigt inte skulle bli snyggt. Isället skapade jag CardGraphic klassen och började skapa korten med hjälp av arv i den klassen. 
+        När de två klasserna fungerade och jag kunde skapa olika kort bestämde jag mig för att göra kortleken. Det gick ganska enkelt, det svåra var att hitta ett bra sätt att sortera de på. Men jag löste det på ett helt okej sätt. 
+        Jag kan nog göra det snyggare kodmessigt på min sida som visar alla kort sorterade men jag tycker att utseendet på sidan blev snyggt.
+    </p>
+    <p>När jag kom till shuffle trodde jag att det skulle bli betydligt svårare men en liten googling visade sig att det redan finns en shuffle funktion så använde den. </p>
+    <p>Eftersom jag gick lite dumt rakt på utan att göra övningen började få problem vid draw. Hade inte koll på hur man jobbade i session så jag fick göra lite research på det. Tycker det blev bra och jobbar med session på alla kortsidor.</p>
+    <p>När all kod fungerade bra så gjorde jag UML diagrammet.</p>
+    <p>Efter UML skapade jag API sidorna. Det blev mycket copy-paste från förra delen förutom när man skulle dra flera kort. Gjorde ett litet skript för att ta hand om det för jag hittade ingen bättre lösning i Symfony.</p>
+    <p>Osäker på vilket flödesdiagram ni syftar på. Uppgiften var byggd på ett bra sätt att jobba uppifrån och ner. Det gav bra fritänk och gjorde att uppgiften kändes mer motiverande att lösa istället för att man måste hålla sig inom ramar. Det var några 
+        ramar men det är så klart för att kunna få en produkt som en kund frågar efter. Annars var det kul med mer frihet.
+    </p>
+    <p>Min TIL är hur man jobbar med session i Symfony.</p>
 </div>
 {% endblock %}
