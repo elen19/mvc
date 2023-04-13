@@ -70,4 +70,68 @@ class ApiController
         );
         return $response;
     }
+
+    #[Route("/card/deck/draw", name: "apiDraw", methods: ['POST'])]
+    public function draw(SessionInterface $session): Response 
+    {
+        if ($session->has("deck")) {
+            $deck = $session->get("deck");
+        } else {
+            $deck = new DeckOfCards();
+            $deck->shuffle();
+            $session->set("deck", $deck);
+        }
+
+        if ($deck->getNrOfCards() !== 0)
+        {
+            $card = $deck->draw();
+            $session->set("card", $card);
+        } else {
+            $card = $session->get("card");
+        }
+        $amount = $deck->getNrOfCards();
+
+        $data = [
+            'card' => $card->getSymbol(),
+            'cards left' => $amount,
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route("/card/deck/draw/{num<\d+>}", name: "apiDrawCards", methods: ['POST'])]
+    public function drawCards(int $num, SessionInterface $session): Response 
+    {
+        if ($session->has("deck")) {
+            $deck = $session->get("deck");
+        } else {
+            $deck = new DeckOfCards();
+            $deck->shuffle();
+            $session->set("deck", $deck);
+        }
+
+        if ($num > $deck->getNrOfCards()) {
+            throw new \Exception("Can not draw that many cards.");
+        }
+        $cards = array();
+        for ($i = 0; $i < $num; $i++) {
+            $cards[] = $deck->draw()->getSymbol();
+        }
+        $amount = $deck->getNrOfCards();
+
+        $data = [
+            'cards' => $cards,
+            'cards left' => $amount,
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
 }

@@ -7,6 +7,37 @@
 
 <main>
     <p><a href="{{ path('quote') }}">Quote api</a> är en JSON sida som ger en slumpad qoute.</p>
+    <p><a href="{{ path('apiDeck') }}">API deck</a> visar en JSON sida med kortleken som sorterad.</p>
+    <p>Tryck på shuffle knappen för att nollställa kortleken igen.</p>
+
+    <form method="POST" action="">
+        <input type="submit" value="Shuffle deck"
+            onClick="this.form.action='{{ path('apiShuffle') }}';">
+
+            <input type="submit" value="Draw one card"
+            onClick="this.form.action='{{ path('apiDraw') }}';">
+    </form>
+
+    <br>
+
+    <form id="draw-cards-form" method="POST" action="{{ path('apiDrawCards', {'num': 1}) }}">
+        <label for="num">Number of cards to draw:</label>
+        <input type="number" id="num" name="num" min="1" max="52" value="1">
+        <button type="submit">Draw cards</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('#draw-cards-form');
+        const numInput = document.querySelector('#num');
+        const baseUrl = form.getAttribute('action').replace(/\/\d+$/, ''); // Remove the number at the end of the URL
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const num = numInput.value;
+            const url = `${baseUrl}/${num}`;
+            form.setAttribute('action', url);
+            form.submit();
+        });
+    </script>    
 </main>
 
 {% endblock %}
