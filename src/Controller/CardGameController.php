@@ -110,4 +110,10 @@ class CardGameController extends AbstractController
         }
         return $this->render('cardGame/drawCards.html.twig');
     }
+
+    #[Route("/game", name: 'game')]
+    public function game(): Response
+    {
+        return $this->render('cardGame/game.html.twig');
+    }
 }

@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}BlackJack{% endblock %}
+
+{% block body %}
+
+<main>
+    <h1>BlackJack</h1>
+    <p>Tjugoett, även känt som Blackjack, är ett populärt kortspel som spelas med en eller flera standardkortlekar. Målet är att slå dealern genom att få en 
+        hand med en högre poäng än dealern utan att gå över 21 poäng. Varje kort representerar sitt eget nummer i poäng, med undantag av kungar, damer och 
+        knektar som räknas som 10 poäng och ess som kan räknas som både 1 och 11 poäng beroende på spelarens hand.
+    </p>
+    <p>
+        Spelet börjar med att varje spelare och dealern får två kort var, med ett av dealerns kort vända uppåt och det andra nedåt. Spelaren kan sedan välja att 
+        "stå" med sin nuvarande hand eller att "ta" ett eller flera ytterligare kort för att förbättra sin hand. Om spelarens hand går över 21 poäng förlorar de 
+        omedelbart. När alla spelare har spelat klart sin hand, visar dealern sitt nedåtvända kort och tar ytterligare kort om de har mindre än 17 poäng.
+    </p>
+    <p>    
+        Om dealerns hand går över 21 poäng vinner alla spelare som inte har överstigit 21 poäng. Annars vinner den spelare som har högre poäng än dealern utan att 
+        överstiga 21 poäng. Om det är lika mellan spelarens och dealerns poäng blir det oavgjort.
+    </p> 
+    <p>   
+        Det finns flera varianter av tjugoett med olika regler, men ovanstående är en grundläggande beskrivning av spelet. För denna uppgift simpliferars reglerna lite 
+        med att inte ha något kort "gömt".
+    </p>
+</main>
+
+{% endblock %}
+
