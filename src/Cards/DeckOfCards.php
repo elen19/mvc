@@ -2,9 +2,14 @@
 
 namespace App\Cards;
 
+use Exception;
+
 class DeckOfCards
 {
-    private $cards;
+    /**
+    * @var CardGraphic[]
+    */
+    private array $cards;
 
     public function __construct()
     {
@@ -20,12 +25,12 @@ class DeckOfCards
         }
     }
 
-    public function shuffle()
+    public function shuffle(): void
     {
         shuffle($this->cards);
     }
 
-    public function sort()
+    public function sort(): void
     {
         // Define the order of the suits
         $suitOrder = ['C', 'D', 'H', 'S'];
@@ -55,21 +60,24 @@ class DeckOfCards
         $this->cards = $sortedDeck;
     }
 
-    public function draw()
+    public function draw(): CardGraphic
     {
         if (empty($this->cards)) {
-            return null;
+            throw new Exception('Deck is empty.');
         }
 
         return array_shift($this->cards);
     }
 
-    public function getNrOfCards()
+    public function getNrOfCards(): int
     {
         return count($this->cards);
     }
 
-    public function getCards()
+    /**
+    * @return CardGraphic[]
+    */
+    public function getCards(): array
     {
         return $this->cards;
     }

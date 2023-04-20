@@ -4,31 +4,31 @@ namespace App\Cards;
 
 class Card
 {
-    private $rank;
-    private $suit;
+    private string $rank;
+    private string $suit;
 
-    public function __construct($rank, $suit)
+    public function __construct(string $rank, string $suit)
     {
         $this->rank = $rank;
         $this->suit = $suit;
     }
 
-    public function getRank()
+    public function getRank(): string
     {
         return $this->rank;
     }
 
-    public function setRank($rank)
+    public function setRank(string $rank): void
     {
         $this->rank = $rank;
     }
 
-    public function getSuit()
+    public function getSuit(): string
     {
         return $this->suit;
     }
 
-    public function setSuit($suit)
+    public function setSuit(string $suit): void
     {
         $this->suit = $suit;
     }

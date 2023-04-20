@@ -4,19 +4,22 @@ namespace App\Cards;
 
 class CardHand
 {
-    private $cards;
+    /**
+    * @var Card[]
+    */
+    private array $cards;
 
     public function __construct()
     {
         $this->cards = [];
     }
 
-    public function addCard(Card $card)
+    public function addCard(Card $card): void
     {
         $this->cards[] = $card;
     }
 
-    public function removeCard(Card $card)
+    public function removeCard(Card $card): void
     {
         $key = array_search($card, $this->cards);
         if (false !== $key) {
@@ -24,12 +27,15 @@ class CardHand
         }
     }
 
-    public function getCards()
+    /**
+    * @return Card[]
+    */
+    public function getCards(): array
     {
         return $this->cards;
     }
 
-    public function clear()
+    public function clear(): void
     {
         $this->cards = [];
     }
