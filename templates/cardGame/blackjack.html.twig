@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Black Jack{% endblock %}
+
+{% block body %}
+<h1>Black Jack</h1>
+<main>
+    <h1>Hands</h1>
+
+    <h2>Dealer</h2>
+    {% for card in dealer.getCards() %}
+            <p>{{ card.getSymbol() }}</p>
+    {% endfor %}
+    <p>Dealer sum: {{ dealer.blackJackHand() }}</p>
+
+    <h2>Player</h2>
+    {% for card in player.getCards() %}
+            <p>{{ card.getSymbol() }}</p>
+    {% endfor %}
+    <p>Player sum: {{ player.blackJackHand() }}</p>
+    <p><a href="{{ path('blackjackDraw') }}">Draw</a>  <a href="{{ path('stay') }}">Stay</a></p>
+    <br>
+    <p><a href="{{ path('clear') }}">Restart</a></p>
+</main>
+
+{% endblock %}
