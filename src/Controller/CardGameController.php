@@ -143,63 +143,50 @@ class CardGameController extends AbstractController
                 }
                 $session->set('dealer', $dealer);
                 $session->set('player', $player);
-                return $this->render('cardGame/blackjack.html.twig', ['player' => $player, 'dealer' => $dealer]);
+                return $this->renderBlackJack($session);
             }
         }
         $player = $session->get('player');
         $dealer = $session->get('dealer');
-        if($player instanceof CardHand && $dealer instanceof CardHand) {
-            return $this->render('cardGame/blackjack.html.twig', ['player' => $player, 'dealer' => $dealer]);
-        }
-        return $this->render('cardGame/blackjack.html.twig');
+        return $this->renderBlackJack($session);
     }
 
     #[Route("/game/blackjack/draw", name: 'blackjackDraw')]
     public function blackjackDraw(SessionInterface $session): Response
     {
-        if ($session->has('deck') == false) {
-            $deck = new DeckOfCards();
-            $deck->shuffle();
-            $session->set('deck', $deck);
-        }
-        $deck = $session->get('deck');
-
-        if (!$session->has('player') || !$session->has('dealer')) {
-            if ($deck instanceof DeckOfCards) {
-                $player = new CardHand();
-                $dealer = new CardHand();
-                for ($i = 0; $i < 4; $i++) {
-                    $card = $deck->draw();
-                    if ($i%2 == 0) {
-                        $dealer->addCard($card);
-                    }
-                    if ($i%2 == 1) {
-                        $player->addCard($card);
-                    }
-                }
-                $session->set('dealer', $dealer);
-                $session->set('player', $player);
-                return $this->render('cardGame/blackjack.html.twig', ['player' => $player, 'dealer' => $dealer]);
-            }
-        }
-
+        $deck = $session->get('deck') ?? new DeckOfCards();
         $player = $session->get('player');
         $dealer = $session->get('dealer');
-        if($deck instanceof DeckOfCards && $player instanceof CardHand && $dealer instanceof CardHand) {
+
+        if ($player instanceof CardHand && $dealer instanceof CardHand && $deck instanceof DeckOfCards) {
             if ($player->blackJackHand() < 21 && !$player->getStay()) {
                 $card = $deck->draw();
                 $player->addCard($card);
             }
+
             if ($player->blackJackHand() > 21 || $player->getStay()) {
-                while ($dealer->blackJackHand() < 17) {
-                    $card = $deck->draw();
-                    $dealer->addCard($card);
-                }
-                $dealer->stay();
+                $dealer = $this->playDealer($dealer, $deck);
             }
-            return $this->render('cardGame/blackjack.html.twig', ['player' => $player, 'dealer' => $dealer]);
+            $session->set('player', $player);
+            $session->set('dealer', $dealer);
         }
-        return $this->render('cardGame/blackjack.html.twig');
+
+        return $this->renderBlackJack($session);
+    }
+
+    private function playDealer(CardHand $dealer, DeckOfCards $deck): CardHand
+    {
+        while ($dealer->blackJackHand() < 17) {
+            $card = $deck->draw();
+            $dealer->addCard($card);
+        }
+        $dealer->stay();
+        return $dealer;
+    }
+
+    private function renderBlackJack(SessionInterface $session): response
+    {
+        return $this->render('cardGame/blackjack.html.twig', ['player' => $session->get('player'), 'dealer' => $session->get('dealer')]);
     }
 
     #[Route("/game/stay", name: 'stay')]

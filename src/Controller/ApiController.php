@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Cards\DeckOfCards;
 use App\Cards\Card;
 use App\Cards\CardGraphic;
+use App\Cards\CardHand;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -163,6 +164,53 @@ class ApiController
         }
         $data = [
             'cards' => "Error in session.",
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    #[Route('/api/game', name: 'apiGame')]
+    public function apiGame(SessionInterface $session): Response
+    {
+        if($session->has('player') && $session->has('dealer')) {
+            $player = $session->get('player');
+            $dealer = $session->get('dealer');
+            $playerSymbols = [];
+            $dealerSymbols = [];
+
+            if ($player instanceof CardHand && $dealer instanceof CardHand) {
+                foreach($player->getCards() as $card) {
+                    $playerSymbols[] = $card->getSymbol();
+                }
+    
+                foreach($dealer->getCards() as $card) {
+                    $dealerSymbols[] = $card->getSymbol();
+                }
+
+                $data = [
+                    'player hand' => $playerSymbols,
+                    'player points' => $player->blackJackHand(),
+                    'player staying' => $player->getStay(),
+                    'dealer hand' => $dealerSymbols,
+                    'dealer points' => $dealer->blackJackHand(),
+                    'dealer staying' => $dealer->getStay(),
+                ];
+        
+                $response = new JsonResponse($data);
+                $response->setEncodingOptions(
+                    $response->getEncodingOptions() | JSON_PRETTY_PRINT
+                );
+                return $response;
+            }
+        }
+
+        $data = [
+            'Game status' => "No game in session at this moment.",
         ];
 
         $response = new JsonResponse($data);
