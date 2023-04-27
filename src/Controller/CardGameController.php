@@ -159,12 +159,12 @@ class CardGameController extends AbstractController
         $dealer = $session->get('dealer');
 
         if ($player instanceof CardHand && $dealer instanceof CardHand && $deck instanceof DeckOfCards) {
-            if ($player->blackJackHand() < 21 && !$player->getStay()) {
+            if ($player->blackJackHand() < 20 && !$player->getStay()) {
                 $card = $deck->draw();
                 $player->addCard($card);
             }
 
-            if ($player->blackJackHand() > 21 || $player->getStay()) {
+            if ($player->blackJackHand() > 20 || $player->getStay()) {
                 $dealer = $this->playDealer($dealer, $deck);
             }
             $session->set('player', $player);

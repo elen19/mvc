@@ -3,10 +3,33 @@
 {% block title %}Doc{% endblock %}
 
 {% block body %}
-<main>
-    <h1>Doc</h1>
-    <div class="report">
-        <img class="uml" src="{{ asset('img/flowchart.png')}}" alt="Bild på flödesschema">
-    </div>
+    
+    <main>
+        <h1>Doc</h1>
+        <img src="{{ asset('img/flowchart.png')}}" alt="Bild på flödesschema">
+    <h2>Psuedokod</h2>
+        <p>Funktionen "blackjack":</p>
+    <p>Om sessionen inte har en kortlek skapas en ny, blandas och sätts i sessionen.</p>
+    <p>Hämta kortleken från sessionen.</p>
+    <p>Om sessionen inte har en spelare eller en dealer, skapa en ny spelare, dealer och lägg till två kort var till varje.</p>
+    <p>Sätt spelaren och dealern i sessionen och rendera blackjack-spelet.</p>
+
+    <p>Funktionen "blackjackDraw":</p>
+    <p>Hämta kortleken från sessionen eller skapa en ny om den inte finns.</p>
+    <p>Hämta spelaren och dealern från sessionen.</p>
+    <p>Om spelaren inte har 21 eller stannat, dra ett kort från kortleken och lägg till det till spelarens hand.</p>
+    <p>Om spelaren har mer än 20 eller har stannat, spela dealerns hand.</p>
+    <p>Sätt spelaren och dealern i sessionen och rendera blackjack-spelet.</p>
+
+    <p>Privat funktion "playDealer":</p>
+    <p>Spela dealerns hand tills handen är lika med eller över 17.</p>
+    <p>Stanna och returnera dealerns hand.</p>
+
+    <p>Privat funktion "renderBlackJack":</p>
+    <p>Rendera blackjack-spelet med spelarens och dealerns händer.</p>
+
+    <p>Funktionen "stay":</p>
+    <p>Hämta spelaren från sessionen.</p>
+    <p>Om spelaren existerar, stanna spelarens hand.</p>
 </main>
 {% endblock %}
