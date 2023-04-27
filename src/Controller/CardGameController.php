@@ -121,33 +121,24 @@ class CardGameController extends AbstractController
     #[Route("/game/blackjack", name: 'blackjack')]
     public function blackjack(SessionInterface $session): Response
     {
-        if ($session->has('deck') == false) {
-            $deck = new DeckOfCards();
-            $deck->shuffle();
-            $session->set('deck', $deck);
-        }
-        $deck = $session->get('deck');
+        $session->clear();
+        $deck = new DeckOfCards();
+        $deck->shuffle();
+        $session->set('deck', $deck);
 
-        if (!$session->has('player') || !$session->has('dealer')) {
-            if ($deck instanceof DeckOfCards) {
-                $player = new CardHand();
-                $dealer = new CardHand();
-                for ($i = 0; $i < 4; $i++) {
-                    $card = $deck->draw();
-                    if ($i%2 == 0) {
-                        $dealer->addCard($card);
-                    }
-                    if ($i%2 == 1) {
-                        $player->addCard($card);
-                    }
-                }
-                $session->set('dealer', $dealer);
-                $session->set('player', $player);
-                return $this->renderBlackJack($session);
+        $player = new CardHand();
+        $dealer = new CardHand();
+        for ($i = 0; $i < 4; $i++) {
+            $card = $deck->draw();
+            if ($i%2 == 0) {
+                $dealer->addCard($card);
+            }
+            if ($i%2 == 1) {
+                $player->addCard($card);
             }
         }
-        $player = $session->get('player');
-        $dealer = $session->get('dealer');
+        $session->set('dealer', $dealer);
+        $session->set('player', $player);
         return $this->renderBlackJack($session);
     }
 
@@ -199,13 +190,6 @@ class CardGameController extends AbstractController
             }
         }
         return $this->redirectToRoute('blackjackDraw');
-    }
-
-    #[Route("/game/clear", name: 'clear')]
-    public function gameClear(SessionInterface $session): Response
-    {
-        $session->clear();
-        return $this->redirectToRoute('blackjack');
     }
 
     #[Route("/game/doc", name: 'gameDoc')]
