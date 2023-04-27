@@ -6,6 +6,8 @@
 
 <main>
     <h1>BlackJack</h1>
+    <li><a href="{{ path('gameDoc') }}">Dokument</a></li>
+    <li><a href="{{ path('blackjack' )}}">Testa blackjack</a></li>
     <p>Tjugoett, även känt som Blackjack, är ett populärt kortspel som spelas med en eller flera standardkortlekar. Målet är att slå dealern genom att få en 
         hand med en högre poäng än dealern utan att gå över 21 poäng. Varje kort representerar sitt eget nummer i poäng, med undantag av kungar, damer och 
         knektar som räknas som 10 poäng och ess som kan räknas som både 1 och 11 poäng beroende på spelarens hand.
@@ -24,7 +26,6 @@
         med att inte ha något kort "gömt".
     </p>
 
-    <p><a href="{{ path('blackjack' )}}">Testa blackjack</a></p>
 </main>
 
 {% endblock %}

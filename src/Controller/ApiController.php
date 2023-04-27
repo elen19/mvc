@@ -187,7 +187,7 @@ class ApiController
                 foreach($player->getCards() as $card) {
                     $playerSymbols[] = $card->getSymbol();
                 }
-    
+
                 foreach($dealer->getCards() as $card) {
                     $dealerSymbols[] = $card->getSymbol();
                 }
@@ -200,7 +200,7 @@ class ApiController
                     'dealer points' => $dealer->blackJackHand(),
                     'dealer staying' => $dealer->getStay(),
                 ];
-        
+
                 $response = new JsonResponse($data);
                 $response->setEncodingOptions(
                     $response->getEncodingOptions() | JSON_PRETTY_PRINT

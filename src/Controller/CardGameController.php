@@ -207,4 +207,10 @@ class CardGameController extends AbstractController
         $session->clear();
         return $this->redirectToRoute('blackjack');
     }
+
+    #[Route("/game/doc", name: 'gameDoc')]
+    public function gameDoc(): Response
+    {
+        return $this->render('cardGame/gameDoc.html.twig');
+    }
 }
