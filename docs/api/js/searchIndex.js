@@ -3,52 +3,52 @@ Search.appendIndex(
                 {
             "fqsen": "\\App\\Cards\\Card",
             "name": "Card",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020playing\u0020card.",
             "url": "classes/App-Cards-Card.html"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020new\u0020Card\u0020object\u0020with\u0020the\u0020specified\u0020rank\u0020and\u0020suit.",
             "url": "classes/App-Cards-Card.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003AgetRank\u0028\u0029",
             "name": "getRank",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020rank\u0020of\u0020the\u0020card.",
             "url": "classes/App-Cards-Card.html#method_getRank"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003AsetRank\u0028\u0029",
             "name": "setRank",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020rank\u0020of\u0020the\u0020card.",
             "url": "classes/App-Cards-Card.html#method_setRank"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003AgetSuit\u0028\u0029",
             "name": "getSuit",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020suit\u0020of\u0020the\u0020card.",
             "url": "classes/App-Cards-Card.html#method_getSuit"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003AsetSuit\u0028\u0029",
             "name": "setSuit",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020suit\u0020of\u0020the\u0020card.",
             "url": "classes/App-Cards-Card.html#method_setSuit"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003A\u0024rank",
             "name": "rank",
-            "summary": "",
+            "summary": "The\u0020rank\u0020of\u0020the\u0020card.",
             "url": "classes/App-Cards-Card.html#property_rank"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003A\u0024suit",
             "name": "suit",
-            "summary": "",
+            "summary": "The\u0020suit\u0020of\u0020the\u0020card.",
             "url": "classes/App-Cards-Card.html#property_suit"
         },                {
             "fqsen": "\\App\\Cards\\CardGraphic",
             "name": "CardGraphic",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020playing\u0020card.",
             "url": "classes/App-Cards-CardGraphic.html"
         },                {
             "fqsen": "\\App\\Cards\\CardGraphic\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020new\u0020Card\u0020object\u0020with\u0020the\u0020specified\u0020rank\u0020and\u0020suit.",
             "url": "classes/App-Cards-CardGraphic.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\CardGraphic\u003A\u003AgetSymbol\u0028\u0029",

@@ -12,7 +12,7 @@ class CardTest extends TestCase
     /**
      * Construct object with arguments.
      */
-    public function testCreateObject()
+    public function testCreateObject(): void
     {
         $guess = new Card("5","H");
         $this->assertInstanceOf("App\Cards\Card", $guess);
@@ -29,7 +29,7 @@ class CardTest extends TestCase
     /**
      * Construct an object and change the suit and rank
      */
-    public function testSetObject() {
+    public function testSetObject(): void {
         $guess = new Card("5", "H");
         $guess->setRank("3");
         $guess->setSuit("C");

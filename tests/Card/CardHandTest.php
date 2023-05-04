@@ -12,7 +12,7 @@ class CardHandTest extends TestCase
     /**
      * Construct object without arguments.
      */
-    public function testCreateObject()
+    public function testCreateObject(): void
     {
         $guess = new CardHand();
         $this->assertInstanceOf("App\Cards\CardHand", $guess);
@@ -21,7 +21,7 @@ class CardHandTest extends TestCase
     /**
      * Test if a hand can get a card
      */
-    public function testAddCard() {
+    public function testAddCard(): void {
         $guess = new CardHand();
         $card = new CardGraphic("5", "H");
         $guess->addCard($card);
@@ -34,7 +34,7 @@ class CardHandTest extends TestCase
     /**
      * Test remove card
      */
-    public function testRemoveCard() {
+    public function testRemoveCard(): void {
         $guess = new CardHand();
         $card = new CardGraphic("5", "H");
         $guess->addCard($card);
@@ -48,7 +48,7 @@ class CardHandTest extends TestCase
     /**
      * Test clear hand
      */
-    public function testClear() {
+    public function testClear(): void {
         $guess = new CardHand();
         $card = new CardGraphic("5", "H");
         $guess->addCard($card);
@@ -62,7 +62,7 @@ class CardHandTest extends TestCase
     /**
      * Test blackJackHand
      */
-    public function testBlackJack() {
+    public function testBlackJack(): void {
         $guess = new CardHand();
         $card1 = new CardGraphic("5", "H");
         $card2 = new CardGraphic("A", "C");
@@ -83,7 +83,7 @@ class CardHandTest extends TestCase
     /**
      * Test stay functions
      */
-    public function testStay() {
+    public function testStay(): void {
         $guess = new CardHand();
 
         $res = $guess->getStay();

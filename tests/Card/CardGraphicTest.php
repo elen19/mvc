@@ -12,7 +12,7 @@ class CardGraphicTest extends TestCase
     /**
      * Construct object with arguments.
      */
-    public function testCreateObject()
+    public function testCreateObject(): void
     {
         $guess = new CardGraphic("5","H");
         $this->assertInstanceOf("App\Cards\CardGraphic", $guess);
@@ -25,7 +25,7 @@ class CardGraphicTest extends TestCase
     /**
      * Construct an object and change the symbol
      */
-    public function testSetObject() {
+    public function testSetObject(): void {
         $guess = new CardGraphic("5", "H");
         $guess->setSymbol("3C");
 
