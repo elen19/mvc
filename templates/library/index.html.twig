@@ -13,8 +13,11 @@
 
     This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ '/home/elis/dbwebb-kurser/mvc/me/report/src/Controller/LibraryController.php'|file_link(0) }}">src/Controller/BookController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/elis/dbwebb-kurser/mvc/me/report/templates/library/index.html.twig'|file_link(0) }}">templates/library/index.html.twig</a></code></li>
+        <li>Your controller at <a href="{{ '/home/elis/dbwebb-kurser/mvc/me/report/src/Controller/LibraryController.php'|file_link(0) }}">src/Controller/BookController.php</a></li>
+        <li>Your template at <a href="{{ '/home/elis/dbwebb-kurser/mvc/me/report/templates/library/index.html.twig'|file_link(0) }}">templates/library/index.html.twig</a></li>
+    </ul>
+    <ul>
+        <li>Add a new book <a href=" {{ path('add_book') }}">here.</a></li>
     </ul>
 </div>
 {% endblock %}

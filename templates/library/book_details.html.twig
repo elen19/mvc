@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book Details{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Book Details</h1>
+        <dl>
+            <dt>Title:</dt>
+            <dd>{{ book.title }}</dd>
+            
+            <dt>ISBN:</dt>
+            <dd>{{ book.ISBN }}</dd>
+            
+            <dt>Author:</dt>
+            <dd>{{ book.author }}</dd>
+            
+            {% if book.picture %}
+                <dt>Picture:</dt>
+                <dd><img src="{{ book.picture }}" alt="Book Picture"></dd>
+            {% endif %}
+        </dl>
+    </main>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Add a New Book</h1>
+        {{ form_start(form) }}
+        {{ form_row(form.title, {'label': 'Title: '}) }}
+        {{ form_row(form.ISBN, {'label': 'ISBN: '}) }}
+        {{ form_row(form.author, {'label': 'Author: '}) }}
+        {{ form_row(form.picture, {'label': 'Picture: '}) }}
+        <button type="submit">Add Book</button>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}
