@@ -17,7 +17,8 @@
         <li>Your template at <a href="{{ '/home/elis/dbwebb-kurser/mvc/me/report/templates/library/index.html.twig'|file_link(0) }}">templates/library/index.html.twig</a></li>
     </ul>
     <ul>
-        <li>Add a new book <a href=" {{ path('add_book') }}">here.</a></li>
+        <li>Add a new book <a href="{{ path('add_book') }}">here.</a></li>
+        <li>See all books <a href="{{ path('book_list') }}">here.</a></li>
     </ul>
 </div>
 {% endblock %}

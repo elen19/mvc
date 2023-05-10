@@ -46,4 +46,15 @@ class LibraryController extends AbstractController
             'book' => $book,
         ]);
     }
+
+    #[Route('/library/books', name: 'book_list')]
+    public function bookList(EntityManagerInterface $entityManager): Response
+    {
+        $bookRepository = $entityManager->getRepository(Book::class);
+        $books = $bookRepository->findAll();
+
+        return $this->render('library/book_list.html.twig', [
+            'books' => $books,
+        ]);
+    }
 }
