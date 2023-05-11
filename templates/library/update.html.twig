@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Book{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Update Book</h1>
+
+        {{ form_start(form, {'action': path('save_book', {'id': book.id}), 'method': 'POST'}) }}
+            {{ form_widget(form) }}
+            <button type="submit">Save Changes</button>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

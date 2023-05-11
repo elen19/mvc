@@ -43,6 +43,48 @@ footer {
     border-top: 2px solid lightgray;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  table th {
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  table tr:first-child th {
+    border-top: 1px solid #ccc; /* Add top border to first row */
+  }
+  
+  table tr:nth-child(odd) {
+    background-color: transparent; /* Remove background color for odd rows */
+  }
+  
+  table td:last-child {
+    text-align: center;
+  }
+  
+  table td:last-child a.delete-button {
+    color: #d9534f;
+    text-decoration: none;
+  }
+  
+  table td:last-child a.delete-button:hover {
+    text-decoration: underline;
+  }
+
+.bookpic {
+    width: 275px;
+}
+
 .site-header {
     background-size: cover;
     height: 100px;

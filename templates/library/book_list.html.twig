@@ -18,7 +18,10 @@
                     <tr>
                         <td>{{ book.title }}</td>
                         <td>{{ book.author }}</td>
-                        <td><a href="{{ path('book_details', {'id': book.id}) }}">View Details</a></td>
+                        <td>
+                            <a href="{{ path('book_details', {'id': book.id}) }}">View Details</a>
+                            <a href="{{ path('update_book', {'id': book.id}) }}">Edit</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
