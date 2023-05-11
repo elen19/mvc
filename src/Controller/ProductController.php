@@ -21,7 +21,8 @@ class ProductController extends AbstractController
     }
 
     #[Route('/product/create', name: 'product_create')]
-    public function createProduct(ManagerRegistry $doctrine): Response {
+    public function createProduct(ManagerRegistry $doctrine): Response
+    {
         $entityManager = $doctrine->getManager();
 
         $product = new Product();
@@ -39,21 +40,23 @@ class ProductController extends AbstractController
     }
 
     #[Route('/product/show', name: 'product_show_all')]
-    public function showAllProduct(ProductRepository $productRepository): Response {
+    public function showAllProduct(ProductRepository $productRepository): Response
+    {
         $products = $productRepository
             ->findAll();
 
-            $response = $this->json($products);
-            $response->setEncodingOptions(
-                $response->getEncodingOptions() | JSON_PRETTY_PRINT
-            );
-            return $response;
+        $response = $this->json($products);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 
     #[Route('/product/show/{id}', name: 'product_by_id')]
-    public function showProductById(ProductRepository $productRepository, int $id ): Response {
+    public function showProductById(ProductRepository $productRepository, int $ids): Response
+    {
         $product = $productRepository
-            ->find($id);
+            ->find($ids);
 
         return $this->json($product);
     }
@@ -61,13 +64,13 @@ class ProductController extends AbstractController
     #[Route('/product/delete/{id}', name: 'product_delete_by_id')]
     public function deleteProductById(
         ProductRepository $productRepository,
-        int $id
+        int $ids
     ): Response {
-        $product = $productRepository->find($id);
+        $product = $productRepository->find($ids);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id '.$ids
             );
         }
 
@@ -79,14 +82,14 @@ class ProductController extends AbstractController
     #[Route('/product/update/{id}/{value}', name: 'product_update')]
     public function updateProduct(
         ProductRepository $productRepository,
-        int $id,
+        int $ids,
         int $value
     ): Response {
-        $product = $productRepository->find($id);
+        $product = $productRepository->find($ids);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id '.$ids
             );
         }
 
