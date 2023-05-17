@@ -23,6 +23,7 @@ class ProductController extends AbstractController
     #[Route('/product/create', name: 'product_create')]
     public function createProduct(ManagerRegistry $doctrine): Response
     {
+
         $entityManager = $doctrine->getManager();
 
         $product = new Product();
