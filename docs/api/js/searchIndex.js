@@ -326,6 +326,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_api"
         },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerTwig.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",
@@ -370,16 +375,6 @@ Search.appendIndex(
             "name": "deleteBook",
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_deleteBook"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AgetAllBooks\u0028\u0029",
-            "name": "getAllBooks",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_getAllBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AgetBookByISBN\u0028\u0029",
-            "name": "getBookByISBN",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_getBookByISBN"
         },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
@@ -590,6 +585,21 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController",
+            "name": "ApiBookController",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController\u003A\u003AgetAllBooks\u0028\u0029",
+            "name": "getAllBooks",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html#method_getAllBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController\u003A\u003AgetBookByISBN\u0028\u0029",
+            "name": "getBookByISBN",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html#method_getBookByISBN"
         },                {
             "fqsen": "\\",
             "name": "\\",

@@ -11,7 +11,6 @@ use App\Form\BookType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
-
 class ApiBookController extends AbstractController
 {
     #[Route('/api/library/books', name: 'api_book_list')]
