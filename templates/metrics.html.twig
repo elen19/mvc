@@ -52,21 +52,11 @@
     <li>Genom båda förändringarna har jag även fixat lägre komplexitet, bättre kodtäckning samt ökat Scrutinizer minimalt.</li>
   </ol>
   
-  <p>Jag tror att dessa förbättringar kommer att påverka mätvärdena för kvalitet på följande sätt:</p>
-  <ul>
-    <li>Kodtäckning: Förväntar mig en ökning med cirka 10% efter att ha lagt till fler testfall.</li>
-    <li>Cyclomatic Complexity: Förväntar mig en minskning med minst 3 enheter efter att ha refaktorerat den komplexa klassen.</li>
-    <li>Kvalitetsindex: Förväntar mig en ökning av kvalitetsindex-betyget till minst 8 efter att ha åtgärdat de identifierade problemområdena.</li>
-  </ul>
+  <p>Dessa förändringar ändrade Average cyclomatic complexity by class från 5.12 till 4.89, code coverage gick från 13% till 19%, Scrutinizer gick från 9.88 till 9.89 och antallen errors gick från 1 till 0. 
+    Det mesta här är minimala förändringar. Mest för att allt såg bra ut sedan innan så är det svårt att göra någon stor förändring som blir väldigt tydlig. Det hade gått att köra fler tester för att få större täckning 
+    men jag valde att bara lägga till ett par tester för att ge en överblick över hur det ger förändringar.
+  </p>
 
-  <h1>Analysera resultatet efter förbättringar</h1>
-  <p>Efter att ha implementerat förbättringarna och analyserat de nya rapporterna från phpmetrics och Scrutinizer ser jag följande förändringar i mätvärdena:</p>
-  <ul>
-    <li>Kodtäckning: 95%</li>
-    <li>Cyclomatic Complexity: 7</li>
-    <li>Kvalitetsindex: 8.5</li>
-  </ul>
-  
   <h1>Diskussion</h1>
   <p>Att aktivt jobba med kodkvalitet och "clean code" på det här sättet kan vara mycket fördelaktigt. Genom att använda verktyg som Phpmetrics och Scrutinizer får vi insikt i vår kod och kan identifiera områden som behöver förbättras. Genom att fokusera på de sex C:na kan vi systematiskt arbeta mot att skapa kod av hög kvalitet.</p>
   

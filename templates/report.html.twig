@@ -10,6 +10,7 @@
     <a href="#kmom03">Kmom03</a>
     <a href="#kmom04">Kmom04</a>
     <a href="#kmom05">kmom05</a>
+    <a href="#kmom06">kmom06</a>
 </main>
 <div class="report">
     <h2 id="kmom01">Kmom01</h2>
@@ -86,5 +87,21 @@
         Missade föreläsningen och gick lite blint in i denna vecka så kan vara därför det kändes lite otydligt också. Kommer se ikapp i helgen i hopp om djupare förestålese. Men grunderna fungerade bra.
     </p>
     <p>Min TIL är hur smidigt det var att skapa databaser och koppla kontroller och även form till den skapade databasen.</p>
+
+    <h2 id="kmom06">Kmom06</h2>
+    <p>PhpMetrics verka ha många bra och tydliga saker man kan se för att förbättra och hitta fel i sin kod. Jag hade ett erro i min kod som jag inte visste om alls förens jag körde phpmetrics. Det som jag fann mest användbart var just bug sökning och violations. 
+        Saker som Object Relations var väldigt otydligt och förstod inte riktigt vad den gav. Annars var overview väldigt snygg då den verkligen gav en överblick över koden.
+    </p>
+    <p>Scrutinizer kändes lite flummigt att fixa. Det tog tid innan allt fungerade men det var nog mer på användaren än hemsidan. När det väl fungerade verkade det helt okej. Jag fick väldigt högt betyg direkt så lite svårt att säga hur den hjälper när man har gjort något som är 
+        lite sämre. Min kodtäckning i början var endast 13% medan kvaliten var 9.88.
+    </p>
+    <p>Kodkvalitet är en viktig del men ibland kan den ge mer förhinder än hjälp. Behövde skriva om en controller så den blev fulare, mer komplex och sämre för att uppfylla vissa krav. Dock så blir koden mer säker i längden. 
+        När det är kod för eget bruk är inte kvaliteten alltid min största prio utan att det ska fungera så som jag vill. Om det t.ex. går bra att visa en produkt efter man har tryckt på en knapp men inte kan visa en produkt om man manuelt skriver in raden i webbläsaren är det en dålig kodkvalite men det 
+        fungerar bra för eget bruk då jag medvetet vetom att jag inte kommer skriva länken utan har knappen för att slippa behöva skriva en länk. Däremot om jag ska ge en kund samma sida är det viktigare att kvalitén är på topp och att det inte finns några fel i koden.
+    </p>
+    <p>Jag tror helt klart att badges visar hur bra en kod är ytligt. Om man bara kollar badges är min kod halvdan då den inte har särksillt stor coverage men allt annat fick den höga poäng på. Jag vet om hur allt fungerar och känner att jag inte behöver ha högre coverage då jag vet att simpla saker fungera men 
+        behöver kanske några tester för att se att vissa fall fungerar. Dock om någon annan skulle se min kod kan en högre coverage behövas för att fastställa för andrapartnern att koden fungerar som den ska.
+    </p>
+    <p>Min TIL är att det finns mer än bara tester för att kolla hur bra en kod är och så att allt fungerar. Bara för att testerna fungerar betyder det inte att alla 6 C är ok.</p>
 </div>
 {% endblock %}
