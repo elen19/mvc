@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+
+  <title>Rapport om kodkvalitet</title>
+  <h1>Introduktion</h1>
+  <p>De sex C:na - även kända som kodkvalitetens sex C:n - är grundläggande faktorer som påverkar kvaliteten på kod. Dessa C:n inkluderar: </p>
+  <ul>
+    <li>Correctness (Korrekthet): Mäter om koden producerar förväntat resultat.</li>
+    <li>Clarity (Tydlighet): Mäter kodens läsbarhet och förståelighet.</li>
+    <li>Completeness (Fullständighet): Mäter hur väl koden uppfyller kraven och specifikationerna.</li>
+    <li>Conciseness (Koncisitet): Mäter hur väl koden uttrycker funktionalitet med minimalt antal rader.</li>
+    <li>Cohesion (Sammansättning): Mäter hur väl kodens olika delar är relaterade till varandra och samarbetar för att uppnå ett gemensamt mål.</li>
+    <li>Coupling (Koppling): Mäter graden av beroenden mellan kodens olika moduler och komponenter.</li>
+  </ul>
+  <p>För att mäta kodens kvalitet kan vi använda olika mätvärden. Ett exempel är kodtäckning, som visar hur många delar av koden som testas. Högre kodtäckning indikerar vanligtvis bättre kodkvalitet. 
+    Ett annat exempel är komplexitet, som kan mätas med hjälp av Cyclomatic Complexity-värden. Här följer några mätvärden för min egen kod:</p>
+  <ul>
+    <li><img src="https://scrutinizer-ci.com/g/elen19/mvc/badges/coverage.png?b=main" alt="Code coverage"></li>
+    <li>Average cyclomatic complexity by class: 5.12</li>
+  </ul>
+  <p>Detta ger en blandad slutsats. Då endast 13% är testat kan kvaliteten vara dålig. Dock är Cyclomatic complexity ganska låg vilket är ett tecken på bättre kod kvalité. 
+    Eftersom det är jag som har skrivit koden vet jag att jag har en del exempel och övningsuppgifter i min kod som jag inte kört testning på. Hade jag tagit bort det hade jag troligen hamnat på cirka 40% eller mer. 
+  Det är fortfarande lågt och mer hade behövts testa i ett mer verkligt exempel.</p>
+
+  <h1>Phpmetrics</h1>
+  <p>Jag analyserade min kod med hjälp av Phpmetrics-rapporten. Nedan är några flaskhalsar och svaga punkter i koden som identifierades:</p>
+  <ul>
+    <li>En hög komplexitetsnivå i flera kontroller: Kontrollerna har en hög Cyclomatic Complexity vilket indikerar att de kan vara svåra att underhålla och förstå.</li>
+    <li>Låg kodtäckning: Som visat ovan så är endast 13% testat och det kan därför finnas en hel del flaskhalsar som inte blivit testade.</li>
+    <li>Hög volym på vissa klasser: Två kontroller har hög volym av kod vilket kan leda till fel som är svåra att hitta då det är mycket kod att gå igenom.</li>
+  </ul>
+  <img src="{{ asset('img/metrics.png')}}" alt="Phpmetrics-rapport" width="15%"/>
+  <p>De två stora röda cirklarna är mina mest använda Controllers och har hög komplexitet. De har även hög volym.</p>
+
+  <h1>Scrutinizer</h1>
+  <p>Jag analyserade också min kod med hjälp av Scrutinizer-rapporten. Här är några av mina observationer:</p>
+  <ul>
+    <li>Build status-badge: <a href="https://scrutinizer-ci.com/g/elen19/mvc/badges/build.png?b=main"><img src="https://scrutinizer-ci.com/g/elen19/mvc/badges/build.png?b=main" alt="Build status"></a></li>
+    <li>Coverage-badge: <a href="https://scrutinizer-ci.com/g/elen19/mvc/badges/coverage.png?b=main"><img src="https://scrutinizer-ci.com/g/elen19/mvc/badges/coverage.png?b=main" alt="Code coverage"></a></li>
+    <li>Kvalitetsindex-badge: <a href="https://scrutinizer-ci.com/g/elen19/mvc/badges/quality-score.png?b=main"><img src="https://scrutinizer-ci.com/g/elen19/mvc/badges/quality-score.png?b=main" alt="Scrutinzer summerize"></a></li>
+    <li>Enligt Scrutinizers fick min kod ett betyg på 9.88 vilket indikerar att koden är mycket bra men att det finns några förbättringar.</li>
+  </ul>
+
+  <h1>Förbättringar</h1>
+  <p>Efter att ha analyserat rapporterna från phpmetrics och Scrutinizer har jag identifierat följande förbättringar för min kod:</p>
+  <ol>
+    <li>Jag har ett error i min LibraryController som jag fixar. Jag fixar det genom att dela upp min API routes till en ny controller. Detta kommer ge lite mindre komplexitet i LibraryController samt ta bort ett error och ge en liten förbättring.</li>
+    <li>Öka kodtäckning för vissa metoder: Jag kommer att lägga till fler testfall för att förbättra kodtäckningen.</li>
+    <li>Fokusera på kvalitetsindex i Scrutinizer: Jag kommer att undersöka vilka specifika områden av koden som bidrar till ett lägre kvalitetsindex och vidta åtgärder för att förbättra dem.</li>
+  </ol>
+  
+  <p>Jag tror att dessa förbättringar kommer att påverka mätvärdena för kvalitet på följande sätt:</p>
+  <ul>
+    <li>Kodtäckning: Förväntar mig en ökning med cirka 10% efter att ha lagt till fler testfall.</li>
+    <li>Cyclomatic Complexity: Förväntar mig en minskning med minst 3 enheter efter att ha refaktorerat den komplexa klassen.</li>
+    <li>Kvalitetsindex: Förväntar mig en ökning av kvalitetsindex-betyget till minst 8 efter att ha åtgärdat de identifierade problemområdena.</li>
+  </ul>
+
+  <h1>Analysera resultatet efter förbättringar</h1>
+  <p>Efter att ha implementerat förbättringarna och analyserat de nya rapporterna från phpmetrics och Scrutinizer ser jag följande förändringar i mätvärdena:</p>
+  <ul>
+    <li>Kodtäckning: 95%</li>
+    <li>Cyclomatic Complexity: 7</li>
+    <li>Kvalitetsindex: 8.5</li>
+  </ul>
+  
+  <h1>Diskussion</h1>
+  <p>Att aktivt jobba med kodkvalitet och "clean code" på det här sättet kan vara mycket fördelaktigt. Genom att använda verktyg som Phpmetrics och Scrutinizer får vi insikt i vår kod och kan identifiera områden som behöver förbättras. Genom att fokusera på de sex C:na kan vi systematiskt arbeta mot att skapa kod av hög kvalitet.</p>
+  
+  <p>Fördelarna med att arbeta med kodkvalitet på detta sätt inkluderar bättre läsbarhet, underhållbarhet och förståelse för koden. Det blir också lättare att hitta och fixa buggar samt att arbeta i team.</p>
+  
+  <p>Nackdelar kan vara att det tar tid och resurser att analysera och implementera förbättringarna. Det kan vara utmanande att balansera kvalitetsförbättringar med kraven på att leverera kod inom snäva tidsramar. Dessutom kan det vara svårt att bedöma vilka förbättringar som ger bäst avkastning.</p>
+  
+  <p>Det finns också andra möjligheter att jobba mot "clean code". Att använda tydliga namngivningskonventioner, kommentera koden, följa designmönster och regelbundet genomföra kodgranskningar är några exempel på andra sätt att främja kodkvalitet.</p>
+
+
+{% endblock %}
