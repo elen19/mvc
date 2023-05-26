@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Card Game, {{ player_name }}</h1>
+
+    <h2>Your Hand:</h2>
+    <ul>
+        {% for card in player_hand %}
+            <li>{{ card.getSymbol() }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Computer's Hand:</h2>
+    <ul>
+        {% for card in computer_hand %}
+            <li>{{ card.getSymbol() }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{{ path('proj_game') }}" method="post">
+        <input type="hidden" name="player_name" value="{{ player_name }}">
+
+        <h2>Discard Cards:</h2>
+        <p>Select up to 3 cards to discard:</p>
+        {% for card in player_hand %}
+            <input type="checkbox" name="discarded_cards[]" value="{{ loop.index0 }}">
+            {{ card.getSymbol() }}
+            <br>
+        {% endfor %}
+
+        <button type="submit">Draw New Cards</button>
+    </form>
+{% endblock %}
