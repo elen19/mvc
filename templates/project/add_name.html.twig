@@ -1,0 +1,12 @@
+{% extends 'project/projBase.html.twig' %}
+
+{% block body %}
+    <h1>Enter Your Name</h1>
+
+    <form method="post" action="{{ path('start_game') }}">
+        <label for="name">Player Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <button type="submit">Start Game</button>
+    </form>
+{% endblock %}
