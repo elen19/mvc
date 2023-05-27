@@ -1,15 +1,51 @@
 {% extends 'project/projBase.html.twig' %}
 
 {% block body %}
-    <h1>Welcome, {{ playerName }}!</h1>
-    
-    <h2>Your Hand</h2>
-    {% for card in playerHand.getCards() %}
-        {{ card.getRank() }} of {{ card.getSuit() }}<br>
+    <h1>Blackjack Game</h1>
+
+    {% for player in players %}
+        <h2>Player {{ player.number }}: {{ player.name }}</h2>
+        <p>Money: {{ player.hand.getMoney() }}</p>
+        <p>Bet: {{ player.hand.getBet() }}</p>
+        <p>Hand:</p>
+        <ul>
+            {% for card in player.hand.getCards() %}
+                <li>{{ card.getRank() }} of {{ card.getSuit() }}</li>
+            {% endfor %}
+        </ul>
     {% endfor %}
 
-    <h2>Computer's Hand</h2>
-    {% for card in computerHand.getCards() %}
-        {{ card.getRank() }} of {{ card.getSuit() }}<br>
-    {% endfor %}
+    <h2>Dealer</h2>
+    <p>Hand:</p>
+    <ul>
+        {% for card in dealerHand %}
+            <li>{{ card.getRank() }} of {{ card.getSuit() }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if gameEnded %}
+        <h3>Game Over</h3>
+        <p>Winning players:</p>
+        <ul>
+            {% for player in winningPlayers %}
+                <li>{{ player.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <form method="post" action="{{ path('player_action') }}">
+            {% for player in players %}
+                <h3>Player {{ player.number }}: {{ player.name }}</h3>
+                <input type="hidden" name="playerIndex" value="{{ player.number }}">
+                <label for="action">Choose an action:</label>
+                <select id="action" name="action">
+                    <option value="stay">Stay</option>
+                    <option value="hit">Hit</option>
+                    {% if player.hand.getCards()|length == 2 and canSplit %}
+                        <option value="split">Split</option>
+                    {% endif %}
+                </select>
+                <button type="submit">Confirm</button>
+            {% endfor %}
+        </form>
+    {% endif %}
 {% endblock %}

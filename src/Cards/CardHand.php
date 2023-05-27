@@ -11,10 +11,16 @@ class CardHand
 
     private bool $stay;
 
+    private int $bet;
+
+    private int $money;
+
     public function __construct()
     {
         $this->cards = [];
         $this->stay = false;
+        $this->bet = 0;
+        $this->money = 100; 
     }
 
     public function addCard(CardGraphic $card): void
@@ -68,4 +74,43 @@ class CardHand
     {
         $this->stay = true;
     }
+
+    public function getBet(): int
+    {
+        return $this->bet;
+    }
+
+    public function setBet(int $bet): void
+    {
+        $this->bet = $bet;
+    }
+
+    public function getMoney(): int
+    {
+        return $this->money;
+    }
+
+    public function setMoney(int $money): void
+    {
+        $this->money = $money;
+    }
+
+    public function placeBet(int $bet): bool
+    {
+        if ($bet > $this->money) {
+            return false; // Insufficient funds
+        }
+
+        $this->bet = $bet;
+        $this->money -= $bet;
+        return true;
+    }
+
+    public function calculateWinnings(float $multiplier): void
+    {
+        $winnings = $this->bet * $multiplier;
+        $this->money += $winnings;
+        $this->bet = 0;
+    }
+
 }

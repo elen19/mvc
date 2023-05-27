@@ -1,11 +1,14 @@
 {% extends 'project/projBase.html.twig' %}
 
 {% block body %}
-    <h1>Enter Your Name</h1>
+    <h1>Enter Player Names</h1>
 
-    <form method="post" action="{{ path('start_game') }}">
-        <label for="name">Player Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <form method="post" action="{{ path('enter_name') }}">
+        {% for playerIndex in range(1, numPlayers) %}
+            <label for="player{{ playerIndex }}">Player {{ playerIndex }} Name:</label>
+            <input type="text" id="player{{ playerIndex }}" name="players[]" required>
+            <br>
+        {% endfor %}
 
         <button type="submit">Start Game</button>
     </form>
