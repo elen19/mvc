@@ -113,4 +113,9 @@ class CardHand
         $this->bet = 0;
     }
 
+    public function clearHand(): void {
+        $this->cards = [];
+        $this->stay = false;
+    }
+
 }
