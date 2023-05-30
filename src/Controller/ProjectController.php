@@ -14,6 +14,12 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ProjectController extends AbstractController
 {
+    #[Route('/proj', name: 'proj')]
+    public function proj(Request $request): Response
+    {
+        return $this->render('project/home.html.twig');
+    }
+
     #[Route('/proj/start', name: 'proj_start')]
     public function index(Request $request, SessionInterface $session): Response
     {
@@ -24,10 +30,10 @@ class ProjectController extends AbstractController
             $deck = new DeckOfCards();
             $deck->shuffle();
             $session->set('deck', $deck);
-    
+
             return $this->redirectToRoute('enter_name');
         }
-    
+
         return $this->render('project/index.html.twig');
     }
 
@@ -37,7 +43,7 @@ class ProjectController extends AbstractController
         if ($session->has('num_players') && !$session->has('players')) {
             $numPlayers = $session->get('num_players');
             $session->set('players', []);
-            
+
             return $this->render('project/add_name.html.twig', ['numPlayers' => $numPlayers]);
         }
 
@@ -45,7 +51,7 @@ class ProjectController extends AbstractController
             $playerNames = $request->request->all()['players'];
             $players = [];
 
-            
+
             foreach ($playerNames as $index => $playerName) {
                 $player = [
                     'number' => $index,
@@ -64,17 +70,17 @@ class ProjectController extends AbstractController
                             $card = $deck->draw();
                             $players[$index]['hand']->addCard($card);
                         }
-                            $card = $deck->draw();
-                            $dealerHand->addCard($card);
-                        }
+                        $card = $deck->draw();
+                        $dealerHand->addCard($card);
                     }
+                }
             }
             $session->set('dealer_hand', $dealerHand);
             $session->set('players', $players);
-    
-            return $this->redirectToRoute('proj_game');
+
+            return $this->redirectToRoute('place_bet');
         }
-    
+
         return $this->render('proj/index.html.twig');
     }
 
@@ -96,12 +102,25 @@ class ProjectController extends AbstractController
                 $card = $deck->draw();
                 $dealerHand->addCard($card);
             }
+            $updatedPlayers = [];
             foreach ($players as $player) {
-                if ( ($player['hand']->blackJackHand() >= $dealerHand->blackJackHand() || $dealerHand->blackJackHand()>21) &&
+                if (($player['hand']->blackJackHand() >= $dealerHand->blackJackHand() || $dealerHand->blackJackHand()>21) &&
                     $player['hand']->blackJackHand() <= 21) {
                     $winningPlayers[] = $player;
+                    $player['hand']->calculateWinnings(1.25);
                 }
+                if ($player['hand']->getMoney() === 0) {
+                    continue; // Skip the player with zero money
+                }
+
+                $player['number'] = count($updatedPlayers); // Update the 'number' value
+                $updatedPlayers[] = $player;
             }
+
+            $players = $updatedPlayers;
+            $numPlayers = count($players);
+            $session->set('players', $players);
+            $session->set('num_players', $numPlayers);
             $session->set('deck', $deck);
             $session->set('dealer_hand', $dealerHand);
             $session->set('winning_players', $winningPlayers);
@@ -119,7 +138,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/proj/player-action', name: 'player_action')]
-public function playerAction(Request $request, SessionInterface $session): Response
+    public function playerAction(Request $request, SessionInterface $session): Response
     {
         // Retrieve necessary game state from session
         $players = $session->get('players', []);
@@ -185,6 +204,7 @@ public function playerAction(Request $request, SessionInterface $session): Respo
         $session->remove('game_ended');
 
         $players = $session->get('players', []);
+        var_dump($players);
         foreach ($players as $player) {
             $player['hand']->clearHand();
         }
@@ -196,14 +216,38 @@ public function playerAction(Request $request, SessionInterface $session): Respo
                 $card = $deck->draw();
                 $players[$index]['hand']->addCard($card);
             }
-                $card = $deck->draw();
-                $dealerHand->addCard($card);
-            }
+            $card = $deck->draw();
+            $dealerHand->addCard($card);
+        }
         $session->set('dealer_hand', $dealerHand);
         $session->set('deck', $deck);
         $session->set('players', $players);
+        $session->set('current_player_index', 0);
 
         // Redirect to the game route to start a new round
-        return $this->redirectToRoute('proj_game');
+        return $this->redirectToRoute('place_bet');
+    }
+
+    #[Route('/proj/bet', name: 'place_bet')]
+    public function placeBet(Request $request, SessionInterface $session): Response
+    {
+        $players = $session->get('players', []);
+        if ($request->isMethod('POST')) {
+            $bets = $request->request->all()['bets'];
+
+            foreach ($players as $index => $player) {
+                $bet = (int) $bets[$index];
+                if ($player['hand']->placeBet($bet)) {
+                    $players[$index] = $player;
+                }
+            }
+
+            $session->set('players', $players);
+
+            // Redirect to the game route to start the round
+            return $this->redirectToRoute('proj_game');
         }
+
+        return $this->render('project/place_bet.html.twig', ['players' => $players]);
+    }
 }

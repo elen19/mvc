@@ -1,0 +1,20 @@
+{% extends 'project/projBase.html.twig' %}
+
+{% block body %}
+    <h1>Place Bets</h1>
+
+    {% if players is empty %}
+        <p>No players left in the game.</p>
+        <a href="{{ path('proj_reset') }}" class="btn btn-primary">Reset Game</a>
+    {% else %}
+        <form method="POST" action="{{ path('place_bet') }}">
+            {% for player in players %}
+                <div>
+                    <label for="bet_{{ player.number }}">Bet for Player {{ player.number }} ({{ player.name }}):</label>
+                    <input type="number" id="bet_{{ player.number }}" name="bets[]" required min="1" max="{{ player.hand.getMoney() }}" />
+                </div>
+            {% endfor %}
+            <button type="submit">Start Round</button>
+        </form>
+    {% endif %}
+{% endblock %}

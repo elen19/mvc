@@ -20,7 +20,7 @@ class CardHand
         $this->cards = [];
         $this->stay = false;
         $this->bet = 0;
-        $this->money = 100; 
+        $this->money = 100;
     }
 
     public function addCard(CardGraphic $card): void
@@ -98,7 +98,7 @@ class CardHand
     public function placeBet(int $bet): bool
     {
         if ($bet > $this->money) {
-            return false; // Insufficient funds
+            return false;
         }
 
         $this->bet = $bet;
@@ -113,7 +113,8 @@ class CardHand
         $this->bet = 0;
     }
 
-    public function clearHand(): void {
+    public function clearHand(): void
+    {
         $this->cards = [];
         $this->stay = false;
     }

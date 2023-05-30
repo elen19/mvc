@@ -121,10 +121,55 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Cards-CardHand.html#property_stay"
         },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AgetBet\u0028\u0029",
+            "name": "getBet",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_getBet"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AsetBet\u0028\u0029",
+            "name": "setBet",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_setBet"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AgetMoney\u0028\u0029",
+            "name": "getMoney",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_getMoney"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AsetMoney\u0028\u0029",
+            "name": "setMoney",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_setMoney"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AplaceBet\u0028\u0029",
+            "name": "placeBet",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_placeBet"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AcalculateWinnings\u0028\u0029",
+            "name": "calculateWinnings",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_calculateWinnings"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AclearHand\u0028\u0029",
+            "name": "clearHand",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#method_clearHand"
+        },                {
             "fqsen": "\\App\\Cards\\CardHand\u003A\u003A\u0024cards",
             "name": "cards",
             "summary": "",
             "url": "classes/App-Cards-CardHand.html#property_cards"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003A\u0024bet",
+            "name": "bet",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#property_bet"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003A\u0024money",
+            "name": "money",
+            "summary": "",
+            "url": "classes/App-Cards-CardHand.html#property_money"
         },                {
             "fqsen": "\\App\\Cards\\DeckOfCards",
             "name": "DeckOfCards",
@@ -600,6 +645,51 @@ Search.appendIndex(
             "name": "getBookByISBN",
             "summary": "",
             "url": "classes/App-Controller-ApiBookController.html#method_getBookByISBN"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController",
+            "name": "ProjectController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aproj\u0028\u0029",
+            "name": "proj",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_proj"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AstartGame\u0028\u0029",
+            "name": "startGame",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_startGame"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Agame\u0028\u0029",
+            "name": "game",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_game"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AplayerAction\u0028\u0029",
+            "name": "playerAction",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_playerAction"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AresetSession\u0028\u0029",
+            "name": "resetSession",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_resetSession"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AnextRound\u0028\u0029",
+            "name": "nextRound",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_nextRound"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AplaceBet\u0028\u0029",
+            "name": "placeBet",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_placeBet"
         },                {
             "fqsen": "\\",
             "name": "\\",
