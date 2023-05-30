@@ -11,6 +11,7 @@
     <a href="#kmom04">Kmom04</a>
     <a href="#kmom05">kmom05</a>
     <a href="#kmom06">kmom06</a>
+    <a href="#kmom10">kmom10</a>
 </main>
 <div class="report">
     <h2 id="kmom01">Kmom01</h2>
@@ -88,6 +89,7 @@
     </p>
     <p>Min TIL är hur smidigt det var att skapa databaser och koppla kontroller och även form till den skapade databasen.</p>
 
+    <br>
     <h2 id="kmom06">Kmom06</h2>
     <p>PhpMetrics verka ha många bra och tydliga saker man kan se för att förbättra och hitta fel i sin kod. Jag hade ett erro i min kod som jag inte visste om alls förens jag körde phpmetrics. Det som jag fann mest användbart var just bug sökning och violations. 
         Saker som Object Relations var väldigt otydligt och förstod inte riktigt vad den gav. Annars var overview väldigt snygg då den verkligen gav en överblick över koden.
@@ -103,5 +105,42 @@
         behöver kanske några tester för att se att vissa fall fungerar. Dock om någon annan skulle se min kod kan en högre coverage behövas för att fastställa för andrapartnern att koden fungerar som den ska.
     </p>
     <p>Min TIL är att det finns mer än bara tester för att kolla hur bra en kod är och så att allt fungerar. Bara för att testerna fungerar betyder det inte att alla 6 C är ok.</p>
+
+    <h2 id="kmom10">Kmom10</h2>
+    <p>Jag har valt att göra ett "multiplayer" blackjack spel. Först var tanken att göra femkorts poker men märkte ganska snabbt att jag började för sent med uppgiften för att lyckas göra det.</p>
+    <p>Jag använde mig utav kort klasserna som jag redan hade skapat med motifikation till att jag la till så att en cardhand har även koll på hur mycket pengar 
+        som spelaren har samt vad den har bettat.
+    </p>
+    <p>Spelet börjar med att man kommer till en sida där man väljer 1-3 spelare. Antalet spelare sparas sedan i session. Efter det skickas man vidare till en sida där användaren får skriva in namn 
+        på de spelare som är med. Namnen och "ID" sparas i en array i sessionen. Varje spelare får en cardhand klass tilldelad till sig. De börjar med $100. Efter namnen är ifylld skickas man vidare 
+        till en bet sida. Där kan spelaren betta mellan $1-$100. När alla spelare har gjort sitt bet så börjar spelet. Det börjar med att dealern ger ett kort i tagen i en cirkel två gånger så att alla 
+        spelare samt dealern har två kort på handen. Spelarna ser endast ena kortet från dealern.
+    </p>
+    <p>Efter alla har fått sina kort blir det första spelarens tur. Den får välja mellan "stay" eller "hit". Hit ger ett till kort, stay så är stannar man med handen. Efter spelare ett har 
+        gjort sitt val blir det spelare två, sedan spelare tre (om det finns så många spelar). Efter det är det första spelarens tur och allt går om. Rundan är igång fram tills alla spelare anntigen har 
+        valt stay eller har fått mer än 20 poäng. Efter det spelar dealern, den drar kort fram tills den får 17 eller mer i poäng. Där efter visas vilka som vann, vad dealern hade för hand samt vad alla spelare hade 
+        för hand. Vinnarna får 1.5xbet utbetalat. Om en spelare går all-in och förlorar så försvinner den ut ur sessionen och från spelet helt. När alla spelare har förlorat alla sina pengar kommer det upp en meny där man 
+        kan göra reset på sessionen. Det finns även alltid en knapp möjligt för reset.
+    </p>
+    <p>Avslutningsvis så gjorde jag tester på de funktioner jag la till i cardhand.</p>
+
+    <br>
+    <p>Tanken var att jag inte ville "göra om" blackjack utan att jag ville utmana mig själv i fem-korts-poker. Efter suttit med det en dag och inte kommit någonstans insåg jag även att uppgiften skulle in tisdag och inte torsdag. 
+        Valde då att försöka göra blackjack med möjligheten att "splitta". Då jag byggde spelet från grunden, förutom klasserna, så valde jag även att inte titta på det jag gjort innan så det inte blev samma sak. Det var svårare än jag trodde 
+        att få alla spelarna, deras bet och pengar att fungera, så blev i slutändan att jag inte riktigt hann med split.
+    </p>
+    <p>Med tanke på att jag valde ett av de enklare uppgifterna så kändes projeketet ändå relativt så som jag förväntade mig att det skulle vara. Var inte svårt men kändes inte heller som en gratis dans på rosorna. Hade jag 
+        märkt tidgiare att uppgiften skulle in tisdag och inte torsdagen skulle jag ha börjat tidigare och förmodligen gjort någon poker variant men känner mig ändå nöjd över hur denna blackjacken blev jämfört med den i från kmom.
+        Projektet kändes rimligt stort.
+    </p>
+
+    <br>
+    <p>Kursen har känts väldigt simpel. Jag klagade på detta för något kmom sedan att det är lite "flummigt" om vad som är "måsten" och vad man inte behöver för att klara uppgifter. 
+        Vissa delar låg t.ex. under "labb miljö" andra var under "övningar". Jag känner om det är saker man "måste" ha gjort för att klara uppgiften ska de ligga under något tydligare sätt. Övningar ser jag som 
+        "gör detta om du är osäker", vilket jag inte kände mig för de flesta kmom utan gick på uppgiften direkt. Sen kom steg som att "köra composer lint" och då hade jag inte fixat lint för det låg i en övning och jag hade missat 
+        det steget helt. Utöver det är jag nöjd med kursen. Jag är inte "extremt fan" av att göra hemsidor men Symfony var väldigt roligt att jobba med. Det kändes mer som jag kodade än att jag stylade som jag har känt 
+        att många andra kurser har varit. Jag ger nog kursen en 7/10. Hade det inte varit dem "gömda" delarna samt att vi gjorde databas under en kmom och sen kom det aldrig något om det igen, förutom valfritt på denna uppgift, så var kursen 
+        väldigt rolig och bra. Vet ej hur mycket Symfony används i "verkligheten", men om någon (jag) vill göra hemsida på fritiden hade jag gjort det i Symfony. Därför rekommenderar jag kursen.
+    </p>
 </div>
 {% endblock %}

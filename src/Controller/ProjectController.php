@@ -15,13 +15,13 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class ProjectController extends AbstractController
 {
     #[Route('/proj', name: 'proj')]
-    public function proj(Request $request): Response
+    public function proj(): Response
     {
         return $this->render('project/home.html.twig');
     }
 
     #[Route('/proj/about', name: 'proj_about')]
-    public function about(Request $request): Response
+    public function about(): Response
     {
         return $this->render('project/about.html.twig');
     }
@@ -210,7 +210,6 @@ class ProjectController extends AbstractController
         $session->remove('game_ended');
 
         $players = $session->get('players', []);
-        var_dump($players);
         foreach ($players as $player) {
             $player['hand']->clearHand();
         }
