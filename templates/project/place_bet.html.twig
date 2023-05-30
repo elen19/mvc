@@ -1,5 +1,7 @@
 {% extends 'project/projBase.html.twig' %}
 
+{% block title %}Bet{% endblock %}
+
 {% block body %}
     <h1>Place Bets</h1>
 
@@ -10,7 +12,7 @@
         <form method="POST" action="{{ path('place_bet') }}">
             {% for player in players %}
                 <div>
-                    <label for="bet_{{ player.number }}">Bet for Player {{ player.number }} ({{ player.name }}):</label>
+                    <label for="bet_{{ player.number }}">Bet for Player {{ player.number }} ({{ player.name }} ${{ player.hand.getMoney() }}):</label>
                     <input type="number" id="bet_{{ player.number }}" name="bets[]" required min="1" max="{{ player.hand.getMoney() }}" />
                 </div>
             {% endfor %}

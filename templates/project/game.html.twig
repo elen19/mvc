@@ -1,59 +1,84 @@
 {% extends 'project/projBase.html.twig' %}
 
+{% block title %}Black Jack{% endblock %}
+
 {% block body %}
     <h1>Blackjack Game</h1>
 
-    {% if gameEnded %}
-        <h3>Game Over</h3>
-        <p>Winning players:</p>
-        {% if winningPlayers is empty %}
-            <p>No winning players this round</p>
-        {% else %}
-            <ul>
-                {% for winningPlayer in winningPlayers %}
-                    <li>{{ winningPlayer.name }} {{ winningPlayer.hand.blackJackHand()  }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+    <div class="container">
+        {% if gameEnded %}
+            <h3>Game Over</h3>
+            <p>Winning players:</p>
+            {% if winningPlayers is empty %}
+                <p>No winning players this round</p>
+            {% else %}
+                <ul>
+                    {% for winningPlayer in winningPlayers %}
+                        <li>{{ winningPlayer.name }} {{ winningPlayer.hand.blackJackHand() }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
-        <p>The Dealer got the following points: {{ dealerHand.blackJackHand() }}</p>
-        {% for card in dealerHand.getCards() %}
-                <li>{{ card.getSymbol() }}</li>
-        {% endfor %}
-        <form method="post" action="{{ path('next_round') }}">
-            <button type="submit">Next Round</button>
-        </form>
-    {% else %}
-        {% for player in players %}
-            <h2>Player {{ player.number }}: {{ player.name }}</h2>
-            <p>Money: {{ player.hand.getMoney() }}</p>
-            <p>Bet: {{ player.hand.getBet() }}</p>
-            <p>Hand: {{ player.hand.blackJackHand() }}</p>
+            <p>The Dealer got the following points: {{ dealerHand.blackJackHand() }}</p>
             <ul>
-                {% for card in player.hand.getCards() %}
+                {% for card in dealerHand.getCards() %}
                     <li>{{ card.getSymbol() }}</li>
                 {% endfor %}
             </ul>
-
-            {% if player.number == currentPlayerIndex %}
-                <h3>Player {{ player.number }}: {{ player.name }}</h3>
-                <form method="post" action="{{ path('player_action') }}">
-                    <input type="hidden" name="player_index" value="{{ player.number }}">
-                    <button type="submit" name="action" value="stay">Stay</button>
-                    <button type="submit" name="action" value="hit">Hit</button>
-                </form>
-            {% else %}
-                <h3>Player {{ player.number }}: {{ player.name }} (Waiting)</h3>
-            {% endif %}
-        {% endfor %}
-
-        <h2>Dealer</h2>
-        <p>Hand: {{ dealerHand.blackJackHand() }}</p>
-        <ul>
-            {% for card in dealerHand.getCards() %}
-                <li>{{ card.getSymbol() }}</li>
+            <p>The players had the following hands:</p>
+            {% for player in players %}
+                <p>{{ player.name }}</p>
+                <ul>
+                    {% for card in player.hand.getCards() %}
+                        <li>{{ card.getSymbol() }}</li>
+                    {% endfor %}
+                </ul>
             {% endfor %}
-        </ul>
-    {% endif %}
-{% endblock %}
+            <form method="post" action="{{ path('next_round') }}">
+                <button type="submit">Next Round</button>
+            </form>
+        {% else %}
+            <div class="dealer-container">
+                <div class="dealer-hand">
+                    <h2>Dealer</h2>
+                    <p>Hand:</p>
+                    <ul>
+                        <li>{{ dealerHand.getCards()[0].getSymbol() }}</li>
+                    </ul>
+                </div>
+            </div>
 
+            <div class="players-container">
+                {% for player in players %}
+                    <div class="player">
+                        <div class="player-info">
+                            <h2>Player {{ player.number }}: {{ player.name }}</h2>
+                            <p>Money: {{ player.hand.getMoney() }}</p>
+                            <p>Bet: {{ player.hand.getBet() }}</p>
+                            <p>Hand: {{ player.hand.blackJackHand() }}</p>
+                        </div>
+                        <div class="player-hand">
+                            <ul>
+                                {% for card in player.hand.getCards() %}
+                                    <li>{{ card.getSymbol() }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="player-action">
+                            {% if player.number == currentPlayerIndex %}
+                                <h3>Player {{ player.number }}: {{ player.name }}</h3>
+                                <form method="post" action="{{ path('player_action') }}">
+                                    <input type="hidden" name="player_index" value="{{ player.number }}">
+                                    <button type="submit" name="action" value="stay">Stay</button>
+                                    <button type="submit" name="action" value="hit">Hit</button>
+                                </form>
+                            {% else %}
+                                <h3>(Waiting)</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

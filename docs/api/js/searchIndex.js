@@ -656,6 +656,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProjectController.html#method_proj"
         },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_about"
+        },                {
             "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",

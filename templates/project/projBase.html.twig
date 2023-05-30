@@ -14,11 +14,13 @@
         {% endblock %}
     </head>
     <body>
-        <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+        <header class="site-header" style="background-image: url({{ asset('img/casino.jpg') }})">
             <span class="site-title">My Project Site</span>
         </header>
         <nav>
             <ul>
+                <li><a href="{{ path('proj') }}">Home</a></li>
+                <li><a href="{{ path('proj_about') }}">About</a></li>
                 <li><a href="{{ path('proj_reset') }}">Reset</a></li>
             </ul>
         </nav>

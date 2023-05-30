@@ -1,0 +1,17 @@
+{% extends "project/projBase.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+<main>
+    <h1>About</h1>
+    <p>Detta är ett blackjack spel baserat på vanliga regler. Det kan var a upp till 3 spelare som alla spela mot en dealer. Innan spelet börjar får varje spelare 
+        välja att lägga ett bet mot dealern. De börjar med $100. Dealern delar ut ett kort i taget i en cirkel från sig själv. Dealern döljer sitt 
+        andra kort så att spelarna inte vet exakt vad den har. I tur och ordning får varje spelare välja hit eller stay. När en spelare når 21 eller mer (efter första rundan) 
+        så stannar den automatiskt. När alla spelare har stannat spelar dealern sin hand. Den stannar när den når 17 eller mer i poäng. Efter det ser spelet över alla 
+        som har vunnit över dealern. Vinnarna får 1.5xbet i pengar. Har en spelare spelat bort alla dess pengar plockas den bort från spelet. Detta håller på tills 
+        alla spelare har bettat bort sina pengar eller fram tills någon trycker på reset.
+    </p>
+</main>
+{% endblock %}
+

@@ -54,13 +54,19 @@ class CardHand
     public function blackJackHand(): float
     {
         $sum = 0;
+        $aces = 0;
 
         foreach ($this->cards as $card) {
             $rank = $card->getRank();
             $sum += (is_numeric($rank)) ? $rank : ($rank == 'A' ? 11 : 10);
-            if ($rank == 'A' && $sum > 21) {
-                $sum -= 10;
+            if ($rank == 'A') {
+                $aces++;
             }
+        }
+
+        while ($aces > 0 && $sum > 21) {
+            $sum -= 10;
+            $aces--;
         }
         return $sum;
     }

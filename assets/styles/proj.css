@@ -9,9 +9,54 @@ body {
   }
   
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .dealer-container {
+    margin-bottom: 20px;
+  }
+  
+  .players-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .player {
+    margin: 10px;
+  }
+  
+  .player-info,
+  .player-hand {
+    margin-bottom: 10px;
+  }
+  
+  .player-hand ul,
+  .dealer-hand ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .player-action {
+    margin-top: 10px;
+  }
+  
+  .dealer-hand h2 {
+    margin-top: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .players-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .player {
+      margin-bottom: 20px;
+    }
   }
   
   h1 {
@@ -25,39 +70,42 @@ body {
   }
   
   h3 {
-    color: #666;
-    font-size: 16px;
-  }
-  
-  p {
-    color: #555;
-    font-size: 14px;
+    color: #333;
+    font-size: 18px;
   }
   
   ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
     margin: 0;
   }
   
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .btn {
+  li {
     display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-right: 5px;
+    font-size: 20px;
   }
   
-  .btn:hover {
-    background-color: #0056b3;
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* Player Styles */
+  .player {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+  
+  /* Dealer Styles */
+  .dealer-hand {
+    margin-bottom: 20px;
   }
   
   /* Specific Styles */
@@ -79,7 +127,7 @@ body {
   }
   
   nav {
-    background-color: #333;
+    background-color: #333333;
     padding: 10px;
   }
   
@@ -91,6 +139,10 @@ body {
   
   nav ul li {
     margin-left: 10px;
+  }
+
+  nav a {
+    color: #00ccff;
   }
   
   /* enter_names.html.twig */
@@ -125,12 +177,6 @@ body {
     background-color: #0056b3;
   }
   
-  /* projGame.html.twig */
-  .container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
   .player-info {
     width: 25%;
   }
@@ -142,16 +188,7 @@ body {
   .dealer-hand {
     width: 30%;
   }
-  
-  .flash-error {
-    color: #ff0000;
-    font-weight: bold;
-  }
-  
-  /* place_bet.html.twig */
-  .container {
-    margin-top: 20px;
-  }
+
   
   .no-players {
     text-align: center;
@@ -169,12 +206,4 @@ body {
   label {
     margin-right: 10px;
   }
-  
-  /* projReset.html.twig */
-  .container {
-    text-align: center;
-    margin-top: 100px;
-  }
-  
-  /* Additional Custom Styles can be added below */
   

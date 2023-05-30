@@ -20,6 +20,12 @@ class ProjectController extends AbstractController
         return $this->render('project/home.html.twig');
     }
 
+    #[Route('/proj/about', name: 'proj_about')]
+    public function about(Request $request): Response
+    {
+        return $this->render('project/about.html.twig');
+    }
+
     #[Route('/proj/start', name: 'proj_start')]
     public function index(Request $request, SessionInterface $session): Response
     {
@@ -107,7 +113,7 @@ class ProjectController extends AbstractController
                 if (($player['hand']->blackJackHand() >= $dealerHand->blackJackHand() || $dealerHand->blackJackHand()>21) &&
                     $player['hand']->blackJackHand() <= 21) {
                     $winningPlayers[] = $player;
-                    $player['hand']->calculateWinnings(1.25);
+                    $player['hand']->calculateWinnings(1.5);
                 }
                 if ($player['hand']->getMoney() === 0) {
                     continue; // Skip the player with zero money
@@ -210,6 +216,7 @@ class ProjectController extends AbstractController
         }
 
         $deck = new DeckOfCards();
+        $deck->shuffle();
         $dealerHand = new CardHand();
         for ($i = 0; $i < 2; $i++) {
             foreach ($players as $index => $player) {
