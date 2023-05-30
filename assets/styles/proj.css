@@ -1,0 +1,180 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 20px;
+  }
+  
+  h3 {
+    color: #666;
+    font-size: 16px;
+  }
+  
+  p {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Specific Styles */
+  
+  /* projBase.html.twig */
+  .site-header {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .site-title {
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav ul li {
+    margin-left: 10px;
+  }
+  
+  /* enter_names.html.twig */
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 200px;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* projGame.html.twig */
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .player-info {
+    width: 25%;
+  }
+  
+  .player-hand {
+    width: 40%;
+  }
+  
+  .dealer-hand {
+    width: 30%;
+  }
+  
+  .flash-error {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  /* place_bet.html.twig */
+  .container {
+    margin-top: 20px;
+  }
+  
+  .no-players {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* projStart.html.twig */
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+  /* projReset.html.twig */
+  .container {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  /* Additional Custom Styles can be added below */
+  
